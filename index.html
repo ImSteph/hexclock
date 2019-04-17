@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hex Clock</title>
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- Web Icon-->
+    <link rel="shortcut icon" type="image/x-icon" href="https://img.icons8.com/ios/50/000000/present.png">
+    <style>
+        html {
+            display: flex;
+            justify-content: center;
+
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 64px;
+            text-align: center; 
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <p>Hex Clock</p>
+    <p id="clock"></p>
+    
+    <script>
+        function refreshDate() {
+ 	        var d = new Date()
+ 	        var h = d.getHours();
+ 	        var m = d.getMinutes();
+ 	        var s = d.getSeconds();
+
+ 	        if (h<=9) {
+                h = '0'+h;
+            }
+                
+            if (m<=9) {
+                m = '0'+m;
+            }
+                
+            if (s<=9) {
+                s = '0'+s;
+            }
+                
+ 	        var	color = '#'+h+m+s;
+            
+            document.body.style.backgroundColor = color;
+            document.getElementById('clock').innerText = color;
+
+            setTimeout(refreshDate, 1000);
+        }
+
+        refreshDate();
+    </script>
+</body>
+</html>
